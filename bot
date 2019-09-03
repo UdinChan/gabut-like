@@ -1,0 +1,35 @@
+#!/bin/bash
+DG='\033[1;32m'
+NC='\033[0m'
+CYAN='\e[38;5;45m'
+RED='\e[38;5;196m'
+GREEN='\e[38;5;82m'
+UNY='\033[4;33m'
+BW='\033[1;37m'
+loop(){
+for ((;;)); do
+bash like.sh;
+sleep 1;
+done
+}
+star(){
+#echo ""
+NOW=`date "+%r"`
+#echo "";
+echo -e "${DG}+---------------------------------------+${NC}"
+echo -e "         ${BW}Starting At ${NOW}${NC} "
+echo -e "${DG}+---------------------------------------+${NC}"
+#echo "";
+loop
+}
+gas(){
+echo "";
+echo -e "${DG}+---------------------------------------+${NC}"
+echo -e "                ${BW}Gabut App${NC}"
+echo -e "         ${BW}Auto Like Timeline Post${NC}"
+#echo -e "${DG}+---------------------------------------+${NC}"
+#echo "";
+}
+clear
+gas
+star
