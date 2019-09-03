@@ -20,7 +20,7 @@ bash get.sh
 
 like(){
 curl -A "${UA}" -s "https://gabut.club/api/v3-beta/method/items.like" \
---data "accessToken=${TOKEN}&accountId=${ID}&itemId=${itemId}&" | grep -Po 'myLike":true'>
+--data "accessToken=${TOKEN}&accountId=${ID}&itemId=${itemId}&" | grep -Po 'myLike":true' > /dev/null;ppk=$?
 if [[ $ppk != false ]]; then
 echo -e "${CYAN}$itemId${NC} = ${GREEN}Liked${NC}"
 else
