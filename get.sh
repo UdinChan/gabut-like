@@ -1,6 +1,11 @@
 #!/bin/bash
+
+# User-Agent List
+UA=$(cat ua.txt | sort -R  | head -1)
+
+# Get item in stream
 getStream(){
-local ugh=$(curl -A "Chrome Dalvik" -s "https://gabut.club/api/v3-beta/method/stream.get">
+local ugh=$(curl -A "${UA}" -s "https://gabut.club/api/v3-beta/method/stream.get">
   local mylike=$(echo -e "${ugh}" | grep -Po "(?<=\"myLike\":).*?(?=,)")
   local ids=$(echo -e "${ugh}" | grep -Po "(?<=\"id\":\").*?(?=\",)")
 local retVal=$(paste <(echo "${ids}") <(echo "${mylike}") --delimiters='|')
@@ -9,6 +14,7 @@ echo -e "${retVal}" | grep "false" >> di.txt
 fi
 }
 
+# Filter itemId
 getId(){
 while IFS='|' read -ra TOKID
 do
